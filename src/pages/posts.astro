@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+export const prerender = false;
+
+import { sanityClient } from "sanity:client";
+
+const posts = await sanityClient.fetch(`*[_type == "post" && defined(slug)]`);
+---
+
+<Layout title="Welcome to Astro.">
+	<h1>Blog posts</h1>
+
+	<ul>
+		{
+			posts.map((post: any) => {
+				console.log(post);
+				return (
+					<li>
+						<a href={"/posts/" + post.slug.current}>{post.title}</a>
+					</li>
+				);
+			})
+		}
+	</ul>
+</Layout>
