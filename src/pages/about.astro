@@ -1,13 +1,14 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Container from "@components/base/Container.astro";
+import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout title="About">
-	<h1>About</h1>
+  <Container>
+    <h1 class="text-4xl text-primary font-bold mb-4">About page</h1>
 
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec
-    mauris nec nunc ultricies tincidunt. Nullam nec mauris nec nunc ultr
-    icies tincidunt. Nullam nec maur is nec nunc ultricies tincidunt.
-	</p>
+    <p class="mb-6">
+      This is the about page. It's a simple page to demonstrate how Astro works.
+    </p>
+  </Container>
 </Layout>

@@ -1,11 +1,18 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Container from "@/components/base/Container.astro";
+import Layout from "@layouts/Layout.astro";
+import { Button } from "@/components/ui/button"
 ---
 
-<Layout title="Welcome to Astro.">
-	<h1>Home</h1>
+<Layout title="Homepage">
+  <Container>
+    <h1 class="text-4xl text-primary font-bold mb-4">Welcome to Astro</h1>
 
-	<p>
-		Welcome to Astro. This is a simple blog built with Astro and Sanity.
-	</p>
+    <p class="mb-6">
+      Astro is a new kind of static site builder that delivers lightning-fast
+      performance with a modern developer experience.
+    </p>
+
+    <Button>Click me!</Button>
+  </Container>
 </Layout>

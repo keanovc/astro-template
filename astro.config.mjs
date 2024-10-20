@@ -4,11 +4,10 @@ import react from "@astrojs/react";
 import { loadEnv } from "vite";
 import netlify from "@astrojs/netlify";
 
-const { PUBLIC_SANITY_STUDIO_PROJECT_ID, PUBLIC_SANITY_STUDIO_DATASET } = loadEnv(
-  process.env.NODE_ENV,
-  process.cwd(),
-  ""
-);
+import tailwind from "@astrojs/tailwind";
+
+const { PUBLIC_SANITY_STUDIO_PROJECT_ID, PUBLIC_SANITY_STUDIO_DATASET } =
+  loadEnv(process.env.NODE_ENV, process.cwd(), "");
 
 export default defineConfig({
   output: "hybrid",
@@ -20,6 +19,9 @@ export default defineConfig({
       studioBasePath: "/studio",
     }),
     react(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
   ],
   adapter: netlify(),
 });

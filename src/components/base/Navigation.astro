@@ -1,0 +1,38 @@
+---
+import { ModeToggle } from "./ModeToggle";
+---
+
+<nav class="container mx-auto mt-4 mb-10">
+  <div
+    class="bg-neutral-200 text-black border border-black dark:bg-neutral-800 dark:text-white dark:border-white rounded-full px-10 py-2 flex justify-between items-center"
+  >
+    <a href="/" class="font-bold text-xl"> Logo</a>
+
+    <div class="flex justify-between items-center gap-4">
+      <ul>
+        <li class="inline-block mx-4">
+          <a href="/" class="hover:text-primary">Home</a>
+        </li>
+        <li class="inline-block mx-4">
+          <a href="/about" class="hover:text-primary">About</a>
+        </li>
+        <li class="inline-block mx-4">
+          <a href="/blog" class="hover:text-primary">Blog</a>
+        </li>
+      </ul>
+
+      <ModeToggle client:load />
+    </div>
+  </div>
+</nav>
+
+<script is:inline>
+  function applyTheme() {
+    localStorage.theme === "dark"
+      ? document.documentElement.classList.add("dark")
+      : document.documentElement.classList.remove("dark");
+  }
+
+  document.addEventListener("astro:after-swap", applyTheme);
+  applyTheme();
+</script>
