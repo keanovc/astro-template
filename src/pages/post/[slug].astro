@@ -5,8 +5,6 @@ import Layout from "@layouts/Layout.astro";
 import PortableText from "@components/logic/PortableText.astro";
 import Container from "@/components/base/Container.astro";
 
-export const prerender = true;
-
 export async function getStaticPaths() {
   const { data: posts } = await loadQuery<SanityDocument[]>({
     query: `*[_type == "post"]`,
