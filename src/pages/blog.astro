@@ -4,6 +4,8 @@ import Layout from "@layouts/Layout.astro";
 import { loadQuery } from "@sanity/lib/load-query";
 import type { SanityDocument } from "@sanity/client";
 
+export const prerender = false;
+
 const { data: posts } = await loadQuery<SanityDocument[]>({
   query: `*[_type == "post"]{
     title,
